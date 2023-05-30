@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /* This file contains a few exercises and TODOs for you to fill.
  * Make sure you do the TODOs in Bag.java, HandBag.java and CrossbodyBag.java
  * as the tasks in this file depends on the completion on those!
@@ -16,6 +18,16 @@ class BagMain {
      */
     public static void enhanceBags(Bag[] bags, boolean double_enhance_handbags) {
         // TODO: Implement this.
+        for (Bag bag: bags) {
+            bag.enhance();
+        }
+        if (double_enhance_handbags == true) {
+            for (Bag bag: bags) {
+                if (bag instanceof HandBag) {
+                    bag.enhance();
+                }
+            }
+        }
     }
 
     /**
@@ -29,5 +41,12 @@ class BagMain {
      */
     public static int countCrossbodyStraps(Bag[] bags) {
         // TODO: Implement this.
+        int i = 0;
+        for (Bag bag: bags) {
+            if (bag instanceof CrossbodyBag) {
+                i += ((CrossbodyBag) bag).getNumberOfStraps();
+            }
+        }
+        return i;
     }
 }
